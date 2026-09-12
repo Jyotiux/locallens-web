@@ -1,12 +1,43 @@
-# React + Vite
+# LocalLens — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The React + Vite frontend for **LocalLens**, a map-based platform for discovering and sharing hidden places.
 
-Currently, two official plugins are available:
+For full project documentation (features, backend setup, API reference), see the [root README](../README.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech
 
-## Expanding the ESLint configuration
+- React 19 + Vite 6
+- Tailwind CSS 3
+- React-Leaflet / Leaflet (interactive map)
+- Fraunces (display) + Inter (body) fonts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Structure
+
+```
+src/
+├── App.jsx              # Main page: header, map pane, discovery list
+├── main.jsx            # React entry point
+├── index.css           # Tailwind + warm editorial design tokens
+└── components/
+    ├── ViewMap.jsx     # Leaflet map — click-to-add, highlight/recenter
+    ├── SpotForm.jsx    # Add-spot form (title, description, category, images)
+    └── Lightbox.jsx    # Full-screen image gallery with keyboard nav
+```
+
+## Local development
+
+```bash
+npm install
+npm run dev       # http://localhost:5173
+```
+
+The API base URL lives in `src/App.jsx` (`API_BASE_URL`). Point it at your backend (e.g. `http://localhost:5000/api`) for local development.
+
+## Scripts
+
+| Script            | Description                  |
+|-------------------|------------------------------|
+| `npm run dev`     | Start the Vite dev server    |
+| `npm run build`   | Build for production         |
+| `npm run preview` | Preview the production build |
+| `npm run lint`    | Run ESLint                   |

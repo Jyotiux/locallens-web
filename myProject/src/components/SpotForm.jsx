@@ -36,8 +36,8 @@ const SpotForm = ({ onSubmit, coords, onCancel }) => {
   };
 
   return (
-    <div className="card p-6 w-full max-w-lg mx-auto mt-6">
-      <h2 className="text-xl font-semibold mb-4">Add Hidden Spot</h2>
+    <div className="card p-6 w-full">
+      <h2 className="font-display text-2xl font-bold tracking-tight text-stone-900 mb-4">Add Hidden Spot</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -69,8 +69,8 @@ const SpotForm = ({ onSubmit, coords, onCancel }) => {
           <option value="Adventure">Adventure</option>
         </select>
 
-        <div className="text-sm text-slate-600">
-          Coordinates: <strong>{coords.lat.toFixed(4)}, {coords.lng.toFixed(4)}</strong>
+        <div className="text-sm text-stone-600">
+          Coordinates: <strong className="text-stone-900">{coords.lat.toFixed(4)}, {coords.lng.toFixed(4)}</strong>
         </div>
 
         <input
@@ -85,7 +85,7 @@ const SpotForm = ({ onSubmit, coords, onCancel }) => {
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 text-sm border rounded text-slate-600"
+            className="px-4 py-2 text-sm rounded-full border border-stone-200 text-stone-600 hover:bg-stone-900/5 transition"
           >
             Cancel
           </button>

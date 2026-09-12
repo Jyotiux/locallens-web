@@ -17,7 +17,7 @@ const highlightedIcon = new L.Icon({
 
 const DEFAULT_CENTER = [15.8281, 78.0373]; // Kurnool
 
-const MapView = ({ onAddLocation, highlightedCoords }) => {
+const MapView = ({ onAddLocation, highlightedCoords, className = "h-[500px] w-full" }) => {
   const [markers, setMarkers] = useState([]);
 
   const MapClickHandler = () => {
@@ -44,7 +44,7 @@ const MapView = ({ onAddLocation, highlightedCoords }) => {
   };
 
   return (
-    <MapContainer center={DEFAULT_CENTER} zoom={13} className="h-[500px] w-full rounded-md">
+    <MapContainer center={DEFAULT_CENTER} zoom={13} className={className}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="© OpenStreetMap"

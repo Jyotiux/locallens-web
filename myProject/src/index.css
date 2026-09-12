@@ -1,37 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global base styles */
+/* ────────────────────────────────────────────────
+   LocalLens design tokens — warm editorial palette
+   ──────────────────────────────────────────────── */
 :root {
-  --primary: #4f46e5;
+  --primary: #6d28d9;          /* restrained LocalLens purple accent */
+  --cream: #f7f3ec;            /* warm off-white background */
+  --cream-raised: #fdfbf7;     /* slightly lighter raised surface */
+  --ink: #1c1917;              /* charcoal text */
+  --ink-soft: #57534e;         /* muted supporting text */
+  --hair: #e7e1d8;             /* thin warm border */
 }
 
+/* Global base styles */
 body {
-  @apply bg-slate-50 text-slate-800 min-h-screen;
+  @apply text-stone-900 min-h-screen antialiased;
+  background-color: var(--cream);
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Editorial display type for major headings */
+.font-display {
+  font-family: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
 }
 
 .app-container {
   @apply max-w-6xl mx-auto px-4 py-6;
 }
 
+/* Warm, low-chrome card: thin border, minimal shadow */
 .card {
-  @apply bg-white border border-gray-100 rounded-lg shadow-sm;
+  @apply rounded-xl;
+  background-color: var(--cream-raised);
+  border: 1px solid var(--hair);
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center px-4 py-2 bg-indigo-600
-    text-white rounded-md shadow-sm hover:bg-indigo-700
-    focus:outline-none focus:ring-2 focus:ring-indigo-300;
+  @apply inline-flex items-center justify-center px-4 py-2
+    text-white rounded-full shadow-sm
+    focus:outline-none focus:ring-2 focus:ring-violet-300 transition;
+  background-color: var(--primary);
+}
+.btn-primary:hover {
+  background-color: #5b21b6;
 }
 
 .input-default {
-  @apply w-full px-3 py-2 border border-gray-200 rounded-md
-    focus:outline-none focus:ring-2 focus:ring-indigo-200;
+  @apply w-full px-3 py-2 rounded-lg bg-white
+    focus:outline-none focus:ring-2 focus:ring-violet-200;
+  border: 1px solid var(--hair);
 }
 
 /* 🔽 Leaflet z-index fix (VERY IMPORTANT) */
