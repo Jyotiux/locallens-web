@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MapView from "./components/ViewMap.jsx";
 import SpotForm from "./components/SpotForm.jsx";
 //
-const API_BASE_URL = "https://locallens-8r2k.onrender.com/api";
+const API_BASE_URL = "https://locallens-fn9b.onrender.com/api";
 
 const App = () => {
   const [selectedCoords, setSelectedCoords] = useState(null);
